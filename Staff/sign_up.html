@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+        .nav1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 5px;
+            box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        .nav2 {
+            width: 200px;
+            background-color: #2c3e50;
+            padding: 39px 0;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            z-index: 999;
+        }
+        .nav2 ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1rem;
+            display: block;
+            padding: 10px 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .logo {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding-left:25px ;
+            cursor: pointer;
+        }
+        .logo img {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+        .search-icon {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .section3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        
+        
+        .Icon1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        
+        .login, .signup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .login {
+            border: 1px solid #2c3e50;
+            color: #2c3e50;
+            background-color: white;
+        }
+        
+        .signup {
+            border: 1px solid #2c3e50;
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .search-button {
+            background-color: #2c3e50 !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav1">
+        <div class="section1">
+            <a class="logo"> 
+                <img src="../Leader/img/icon.png" alt="Logo"> 
+                AProjectO
+            </a>
+        </div>
+        <div class="section2">
+            <div class="relative"> 
+                <input type="text" class="h-10 w-96 pl-4 pr-20 rounded-lg border focus:outline-none" placeholder="Search anything...">
+                <button class="absolute top-1/2 right-2 transform -translate-y-1/2 h-8 px-4 text-white rounded search-button hover:bg-gray-700">Search</button>
+            </div>
+        </div>
+        <div class="section3">
+            <div class="Icon1">
+                <svg class="w-6 h-6 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 21">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C17 15.4 17 16 16.462 16H3.538C3 16 3 15.4 3 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 10 3.464ZM1.866 8.832a8.458 8.458 0 0 1 2.252-5.714m14.016 5.714a8.458 8.458 0 0 0-2.252-5.714M6.54 16a3.48 3.48 0 0 0 6.92 0H6.54Z"></path>
+                </svg>
+            </div>
+            <button class="login">Login</button>
+            <button class="signup">Sign Up</button>
+        </div>
+    </nav>
+    <nav class="nav2">
+        <ul>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#syntax">Tasks</a></li>
+            <li><a href="#worklogs">Work logs</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#setting">Setting</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
