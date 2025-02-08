@@ -4,12 +4,17 @@
     top: 0;
 }
 
+.log-in-action {
+    width: 100%!important;
+    justify-content: center;
+}
+
 /* COLOR */
-.color-dark{
+.color-dark {
     color: #1D1D1B;
 }
 
-.color-navy-blue{
+.color-navy-blue {
     color: #0B3051;
 }
 
@@ -19,7 +24,7 @@
     justify-content: space-around;
 }
 
-.left-container img{
+.left-container img {
     width: 50px;
     height: 50px;
 }
