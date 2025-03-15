@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Page</title>
+    <title>User Page</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- CSS Style -->
     <link rel="stylesheet" href="./style.css">
@@ -17,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -38,7 +38,7 @@
                             </path>
                         </svg>
                     </button>
-                    <a href="#" class="flex ms-2 md:me-24">
+                    <a href="../ProjectPage/index.html" class="flex ms-2 md:me-24">
                         <img src="../../LogInPage/img/icon.png" class="h-8 me-3" alt="Logo" />
                         <span
                             class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-black">AProjectO</span>
@@ -82,11 +82,9 @@
                                     class="block text-sm text-gray-500 dark:text-gray-400 truncate"></span>
                             </div>
                             <ul class="py-2">
-                                <li>
-                                    <button type="button" onclick="logout()"
+                                <li><button type="button" onclick="logout()"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                        out</button>
-                                </li>
+                                        out</button></li>
                             </ul>
                         </div>
                     </div>
@@ -102,7 +100,7 @@
         <div class="h-full px-3 pb-4 overflow-y-auto bg-white ">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="#"
+                    <a href="../ProjectPage/index.html"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-white">
                         <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -141,23 +139,23 @@
         </div>
     </aside>
 
-    <!-- PROJECT TABLE -->
-    <div class="p-4 sm:ml-64 project-table">
+    <!-- USER TABLE -->
+    <div class="p-4 sm:ml-64 user-table">
         <div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             <div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
                 <div id="staff-list" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
                 <div id="admin-panel" class="mt-10 p-5 bg-gray-100 rounded-lg">
                     <div class="flex items-center justify-between">
-                        <h2 class="text-2xl font-bold uppercase">Projects Table</h2>
+                        <h2 class="text-2xl font-bold mb-4 uppercase">Staff Table</h2>
                         <!-- Modal toggle -->
-                        <button data-modal-target="create-modal" data-modal-toggle="create-modal" onclick=""
-                            class=" font-semibold block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-8"
+                        <button data-modal-target="create-modal" data-modal-toggle="create-modal" onclick="showDate()"
+                            class="font-semibold block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-8"
                             type="button">
-                            Create Project
+                            Create Staff
                         </button>
 
                         <!-- Main modal -->
-                        <div id="create-modal" tabindex="-1" 
+                        <div id="create-modal" tabindex="-1" aria-hidden="true"
                             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                             <div class="relative p-4 w-full max-w-md max-h-full">
                                 <!-- Modal content -->
@@ -166,7 +164,7 @@
                                     <div
                                         class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
                                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                            Create New Project
+                                            Create New Staff
                                         </h3>
                                         <button type="button"
                                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -183,41 +181,59 @@
                                     <!-- Modal body -->
                                     <form class="p-4 md:p-5">
                                         <div class="grid gap-4 mb-4 grid-cols-2">
-                                            <input type="hidden" id="create-project-id">
+                                            <input type="hidden" id="staff-id">
                                             <div class="col-span-2">
-                                                <label for="project-name"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Project
+                                                <label for="first-name"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First
                                                     Name</label>
-                                                <input type="text" name="create-project-name" id="create-project-name"
+                                                <input type="text" name="create-first-name" id="create-first-name"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                    placeholder="Project Name" required="">
+                                                    placeholder="First Name" required="">
                                             </div>
                                             <div class="col-span-2">
-                                                <label for="project-title"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Project
-                                                    Title</label>
-                                                <input type="text" name="create-project-title" id="create-project-title"
+                                                <label for="last-name"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
+                                                    Name</label>
+                                                <input type="text" name="create-last-name" id="create-last-name"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                    placeholder="Project Title" required="">
+                                                    placeholder="Last Name" required="">
                                             </div>
                                             <div class="col-span-2">
-                                                <label for="project-desc"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Project
-                                                    Description</label>
-                                                <input type="text" name="create-project-desc" id="create-project-desc"
+                                                <label for="email"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                                <input type="email" name="create-email" id="create-email"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                    placeholder="Project Description" required="">
+                                                    placeholder="Email" required="">
                                             </div>
                                             <div class="col-span-2">
-                                                <label for="complete-time"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Complete
-                                                    Time</label>
-                                                <input type="date" name="create-complete-time" id="create-complete-time"
+                                                <label for="phone number"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
+                                                    Number</label>
+                                                <input type="text" name="create-phone-number" id="create-phone-number"
                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                    placeholder="Complete Time" required="">
+                                                    placeholder="Phone Number" required="">
+                                            </div>
+                                            <div class="col-span-2">
+                                                <label for="created-date"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Created
+                                                    Date</label>
+                                                <input type="text" name="created-date" id="created-date"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                    placeholder="Created Date" required="" disabled>
+                                            </div>
+                                            <div class="col-span-2">
+                                                <label for="create-by"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Created
+                                                    By</label>
+                                                <select name="created-by" id="created-by"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                    required="">
+                                                    <option value="Admin">Admin</option>
+                                                    <!-- <option value="Conny">Conny</option> -->
+                                                </select>
                                             </div>
                                         </div>
-                                        <button onclick="createProject(event)"
+                                        <button onclick="createStaff()"
                                             class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                             <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -225,18 +241,30 @@
                                                     d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                                                     clip-rule="evenodd"></path>
                                             </svg>
-                                            Add New Project
+                                            Add New Staff
                                         </button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="dashboard-container">
-                    <div class="projects-grid" id="projects-grid"></div>
-                    <div class="pagination" id="pagination"></div>
+                    <!-- Table -->
+                    <table class="w-full bg-white shadow-md rounded-xl">
+                        <thead>
+                            <tr class="title-table text-white">
+                                <th class="p-2">First Name</th>
+                                <th class="p-2">Last Name</th>
+                                <th class="p-2">Email</th>
+                                <th class="p-2">Phone Number</th>
+                                <th class="p-2">Created Date</th>
+                                <th class="p-2">Created By</th>
+                                <th class="p-2">Setting</th>
+                            </tr>
+                        </thead>
+                        <tbody id="staff-table">
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -245,9 +273,9 @@
     <!-- Modal -->
     <div id="crud-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">
         <div
-            class="dark:bg-gray-700 p-6 rounded-xl shadow-xl w-full max-w-lg transform transition-all duration-300 ease-in-out project-modal">
+            class="p-6 rounded-xl shadow-xl w-full max-w-lg transform transition-all duration-300 ease-in-out user-modal">
             <div class="flex justify-between items-center mb-4 border-b border-gray-200 pb-2">
-                <h3 class="text-lg font-bold text-white">Edit Project</h3>
+                <h3 class="text-lg font-bold text-white">Edit Staff</h3>
                 <button onclick="closeModal()"
                     class="text-gray-500 hover:text-gray-700 p-1 rounded-full hover:bg-gray-100">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -260,61 +288,51 @@
             <!-- Modal body -->
             <form class="p-4 md:p-5">
                 <div class="grid gap-4 mb-4 grid-cols-2">
-                    <input type="hidden" id="project-edit-id">
+                    <input type="hidden" id="staff-edit-id">
                     <div class="col-span-2">
-                        <label for="edit-project-name"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                        <input type="text" name="edit-project-name" id="edit-project-name"
+                        <label for="edit-first-name"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+                        <input type="text" name="edit-first-name" id="edit-first-name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Project Name">
-                    </div>
-                    <div class="col-span-2">
-                        <label for="edit-project-title"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                        <input type="text" name="edit-project-title" id="edit-project-title"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Project Title">
+                            placeholder="First Name" required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="edit-project-desc"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                        <input type="text" name="edit-project-desc" id="edit-project-desc"
+                        <label for="edit-last-name"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+                        <input type="text" name="edit-last-name" id="edit-last-name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Description">
+                            placeholder="Last Name" required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="edit-complete-time"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Complete
-                            Time</label>
-                        <input type="date" name="edit-complete-time" id="edit-complete-time"
+                        <label for="edit-email"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                        <input type="text" name="edit-email" id="edit-email"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Complete Time">
+                            placeholder="Email" required="">
                     </div>
                     <div class="col-span-2">
-                        <label for="edit-project-status"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                        <select name="edit-project-status" id="edit-project-status"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option value="Offtrack">Offtrack</option>
-                            <option value="Active">Active</option>
-                        </select>
-                    </div>
-                    <div class="col-span-2 hidden">
-                        <label for="edit-project-feedback"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Issues</label>
-                        <input type="text" name="edit-project-feedback" id="edit-project-feedback"
+                        <label for="edit-phone-number"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+                        <input type="text" name="edit-phone-number" id="edit-phone-number"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Feedback">
+                            placeholder="Phone Number" required="">
                     </div>
-                    <div class="col-span-2 hidden">
-                        <label for="edit-project-team"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                        <input type="text" name="edit-project-team" id="edit-project-team"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Team">
+                    <div class="col-span-2">
+                        <label for="edit-created-date"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Created Date</label>
+                        <input type="text" name="edit-created-date" id="edit-created-date"
+                            class="font-semibold bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Created Date" required="" disabled readonly>
+                    </div>
+                    <div class="col-span-2">
+                        <label for="edit-created-by"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Created By</label>
+                        <input type="text" name="edit-created-by" id="edit-created-by"
+                            class="font-semibold bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Created By" required="" disabled readonly>
                     </div>
                 </div>
-                <div id="button-edit-project">
+                <div id="button-edit-staff">
                 </div>
             </form>
         </div>

@@ -1,3 +1,9 @@
-.h1{
-    font-size: small;
+.project-modal{
+    background-color: rgb(55 65 81 );
 }
+
+.project-modal form label{
+    color: #fff;
+    font-weight: 700;
+}
+

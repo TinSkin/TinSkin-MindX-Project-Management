@@ -1,0 +1,28 @@
+.title-table {
+    background-color: #7494ec;
+    height: 60px;
+}
+
+.user-table {
+    animation: fadeInRight 1s ease-in-out;
+}
+
+.user-modal {
+    background-color: #4b5563;
+    color: #fff;
+}
+
+.user-modal form label {
+    color: #fff;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+
+    to {
+        opacity: 1;
+    }
+}

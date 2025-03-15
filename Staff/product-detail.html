@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Product Detail</title>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 shadow-lg dark:bg-white">
+        <div class="px-3 py-3 lg:px-5 lg:pl-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                        <span class="sr-only">Open sidebar</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                        </svg>
+                    </button>
+                    <a href="#" class="flex ms-2 md:me-24">
+                        <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-black">AProjectO</span>
+                    </a>
+                </div>
+                <div class="lg:flex flex-1 items-center justify-center space-x-8">
+                    <div class="relative w-full max-w-lg">
+                        <input type="text" id="search-navbar" class="h-10 w-full pl-4 pr-20 ..." placeholder="Search anything...">
+                    </div>
+                </div>
+                <div class="flex items-center ml-auto">
+                    <div class="relative flex items-center">
+                        <div class="flex flex-1 items-center mr-8 cursor-pointer">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 21">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C15 15.4 15 16 14.462 16H1.538C1 16 1 15.4 1 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 8 3.464ZM4.54 16a3.48 3.48 0 0 0 6.92 0H4.54Z"></path>
+                            </svg>
+                        </div>
+                        <label for="user-menu-toggle" class="cursor-pointer">
+                            <img class="w-10 h-10 rounded-full" src="https://img.freepik.com/premium-vector/avatar-icon0002_750950-43.jpg?semt=ais_hybrid" alt="User Avatar">
+                        </label>
+                        <input type="checkbox" id="user-menu-toggle" class="hidden peer" />
+                        <div id="user-dropdown" class="absolute top-12 right-0 w-48 bg-white divide-y divide-bl rounded-lg shadow-lg dark:bg-gray-700 dark:divide-gray-600 hidden peer-checked:block">
+                            <div class="px-4 py-3">
+                                <span id="logged-in-username" class="block text-sm font-semibold text-gray-900 dark:text-white"></span>
+                                <span id="logged-in-email" class="block text-sm text-gray-500 dark:text-gray-400 truncate"></span>
+                            </div>
+                            <ul class="py-2">
+                                <li>
+                                    <button type="button" onclick="logout()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="product-detail" class="mt-28 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md"></div>
+
+    <!-- Form bình luận -->
+    <div class="mt-4 max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-4">Asking for help:</h3>
+        <div class="mb-4">
+            <label class="block mb-2"></label>
+            <textarea id="comment" class="p-2 border rounded w-full" placeholder="Enter your question"></textarea>
+        </div>
+        <button onclick="submitReview()" class="bg-blue-600 text-white p-2 rounded w-full">Send</button>
+    </div>
+
+    <!-- Danh sách bình luận -->
+    <div id="comment-list" class="mt-6 max-w-4xl mx-auto"></div>
+
+    <!-- Form trả lời (ẩn mặc định, sẽ hiển thị khi nhấp nút "Trả lời") -->
+    <div id="reply-form" class="mt-4 max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-md hidden border border-gray-200">
+        <h4 class="text-md font-semibold mb-2 text-gray-800">Trả lời bình luận</h4>
+        <textarea id="reply-text" class="p-3 border rounded-lg w-full mb-3 border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Nhập phản hồi của bạn"></textarea>
+        <div class="flex justify-end space-x-2">
+            <button onclick="submitReply()" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-200">Gửi trả lời</button>
+            <button onclick="hideReplyForm()" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition duration-200">Hủy</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'920b18fecfe7b074',t:'MTc0MjAzMjEzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+
+</html>
